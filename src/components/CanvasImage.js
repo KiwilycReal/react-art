@@ -11,16 +11,6 @@ const CanvasImage = (props) => {
     let {version} = props;
     // Size of the canvas
     const canvasWidth = 256, canvasHeight = 128;
-    // Center coordinates of the seven circle in version 2 drawing, origin is the top-left point
-    let centers = [
-        {x: 79.5,y: 63.5},
-        {x: 127.5,y: 63.5},
-        {x: 175.5,y: 63.5},
-        {x: 103.5,y: 111.5},
-        {x: 151.5,y: 111.5},
-        {x: 151.5,y: 15.5},
-        {x: 103.5,y: 15.5},
-    ];
     // Retrieve a mutable ref object of the canvas
     const canvasRef = useRef(null);
     // Retrieve the colour array, which is already sorted based on Hue value
@@ -124,6 +114,16 @@ const CanvasImage = (props) => {
              * equal to 16px, and distance between two centers of circle is 48px
              */
             case 2:
+                // Center coordinates of the seven circle in version 2 drawing, origin is the top-left point
+                let centers = [
+                    {x: 79.5,y: 63.5},
+                    {x: 127.5,y: 63.5},
+                    {x: 175.5,y: 63.5},
+                    {x: 103.5,y: 111.5},
+                    {x: 151.5,y: 111.5},
+                    {x: 151.5,y: 15.5},
+                    {x: 103.5,y: 15.5},
+                ];
                 // First divide the entire colour array into 8 chunks, roughly matches to 8 colors like rainbow (red occurs both head and tail)
                 // Then, based on calculation, each circle contains exact 812 pixels, therefore we extract first 812 pixels from each family;
                 // Except the last red family because its redundant and we only have 7 circles.
@@ -190,7 +190,7 @@ const CanvasImage = (props) => {
         setDuration(new Date() - start);
         // Update download url
         setCanvasUrl(canvasRef.current.toDataURL('image/png'));
-    },[version, centers, colourArray]);
+    },[version, colourArray]);
 
     return <>
         <a
