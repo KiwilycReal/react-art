@@ -180,6 +180,8 @@ const CanvasImage = (props) => {
                     }
                 };
                 break;
+            default:
+                break;
         };
         
         // Pour the drawing data to the canvas
@@ -188,7 +190,7 @@ const CanvasImage = (props) => {
         setDuration(new Date() - start);
         // Update download url
         setCanvasUrl(canvasRef.current.toDataURL('image/png'));
-    },[version]);
+    },[version, centers, colourArray]);
 
     return <>
         <a

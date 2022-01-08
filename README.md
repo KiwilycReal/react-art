@@ -7,5 +7,5 @@
 - Version 2
 
 ![versioin2](public/version2.png)
-## Website 👉 [https://13.239.120.30:3000](https://13.239.120.30:3000)
+## Website 👉 [https://54.252.200.68:3000](https://54.252.200.68:3000)
 ### *created by CRA*

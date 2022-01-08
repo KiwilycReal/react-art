@@ -32,6 +32,7 @@ const useColours = () => {
                     h = (b - r) / diff + 2; break;
                 case b:
                     h = (r - g) / diff + 4; break;
+                default: break;
             }
             h /= 6;
         }
